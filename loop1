@@ -1,0 +1,20 @@
+    for (let i = 1; i < cards.length; i++) {
+        locations[i].innerHTML = d.city.name;
+
+        for (let j = 0; j < d.list.length; j++) {
+            // console.log(d.list[j].dt_txt.slice(11))
+            console.log(d.list[j].main.temp)
+            if (d.list[j].dt_txt.slice(11) == '15:00:00') {
+                // console.log('whiaa');
+                // console.log(Math.round(parseFloat(d.list[i].main.temp - 273.15)));
+                // document.getElementById('temp'+i).innerHTML = Math.round(parseFloat(d.list[j].main.temp));
+                console.log(document.getElementById('temp'+i))
+
+                document.getElementById('temp'+i).innerHTML = d.list[j].main.temp;
+            } 
+            // if ((d.list[j].dt_txt.slice(0, d.list[j].dt_txt.length-9) !== date()) && (d.list[0].dt_txt.slice(11)) == '12:00:00') { 
+
+        }
+    }
+
+
