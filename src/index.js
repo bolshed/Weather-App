@@ -19,7 +19,7 @@ function fetchCurrentWeather(cityName) {
 }
 
 function fetchForecastWeather(cityName) {
-    fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=' + apiKey)
+    fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=' + apiKey + '&units=metric')
 
         .then(resp => resp.json())
         .then(data => {
@@ -32,7 +32,7 @@ function fetchForecastWeather(cityName) {
 }
 
 window.onload = function () {
-    fetchCurrentWeather('Berlin');
+    // fetchCurrentWeather('Berlin');
     fetchForecastWeather('Berlin');
 
 }
