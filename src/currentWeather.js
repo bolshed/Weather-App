@@ -1,16 +1,6 @@
 export { currentWeather }
 
 function currentWeather(d) {
-    const celsiusCurrent = Math.round(parseFloat(d.main.temp) - 273.15);
-    const fahrenheitCurrent = Math.round(((parseFloat(d.main.temp) - 273.15) * 1.8) + 32);
-    const celsiusMin = Math.round(parseFloat(d.main.temp_min) - 273.15);
-    const celsiusMax = Math.round(parseFloat(d.main.temp_max) - 273.15);
-
-
-    // location
-    // document.getElementById('location0').innerHTML = d.name;
-    // date
-    // document.getElementById('date0').innerHTML = date();
     //icon
     const icon = d.weather[0].icon + '.png';
     document.getElementById('icon0').setAttribute('src', icon);
@@ -21,5 +11,5 @@ function currentWeather(d) {
     //wind
     document.getElementById('wind0').innerHTML = 'Wind speed: ' + d.wind.speed + 'm/s';
     //min-max temp
-    document.getElementById('mmtemp0').innerHTML = 'Min: ' + celsiusMin + '&deg;' + 'C ' + 'Max: ' + celsiusMax + '&deg;' + 'C';
+    document.getElementById('mmtemp0').innerHTML = 'Min: ' + parseInt(d.main.temp_min) + '&deg;' + 'C ' + 'Max: ' + parseInt(d.main.temp_max) + '&deg;' + 'C';
 }

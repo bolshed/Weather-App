@@ -6,11 +6,11 @@ import { currentWeather } from './currentWeather.js';
 import { forecastWeather } from './forecastWeather.js';
 
 function fetchCurrentWeather(cityName) {
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + apiKey)
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + apiKey + '&units=metric')
 
         .then(resp => resp.json())
         .then(data => {
-            // console.log(data);
+            console.log(data);
             currentWeather(data);
         })
         .catch(function () {
@@ -32,7 +32,7 @@ function fetchForecastWeather(cityName) {
 }
 
 window.onload = function () {
-    // fetchCurrentWeather('Berlin');
+    fetchCurrentWeather('Berlin');
     fetchForecastWeather('Berlin');
 
 }

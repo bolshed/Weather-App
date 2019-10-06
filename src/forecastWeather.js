@@ -24,23 +24,25 @@ function forecastWeather(d) {
     for (let i = 0; i < d.list.length; i++) {
         const hour = d.list[i].dt_txt.slice(11)
         const date = timeConverter(d.list[i].dt)
-        // console.log(date)
-        if (hour === '15:00:00') {
+        if (hour === '15:00:00' && date) {
             maxTemps.push(d.list[i].main.temp)
         }
+        // console.log(date)
     }
-    console.log(maxTemps)
 
     let cardDate = new Date()
     for (let i = 0; i <= cards.length; i++) {
         locations[i].innerHTML = d.city.name + ', ' + d.city.country
-        let ddmmyyyyDateConvert = cardDate.toString().slice(0, 4) + cardDate.toString().slice(8, 11)[0] === '0' ? cardDate.toString().slice(9, 11) : cardDate.toString().slice(8, 11);
 
-        console.log(cardDate)
-        // dates[i].innerHTML = ddmmyyyyDateConvert
+        // check if date has zero as 1st symbol and, if true, display the date without it
+        const dateWithoutZeros = cardDate.toString().slice(8, 11)[0] === '0' ? cardDate.toString().slice(9, 11) : cardDate.toString().slice(8, 11)
+        // concatenate day + dates w/o zero + year
+        const ddmmyyyyDateConvert = cardDate.toString().slice(0, 4) + dateWithoutZeros + cardDate.toString().slice(11, 15)
+
+        dates[i].innerHTML = ddmmyyyyDateConvert
         // dates[i].innerHTML = cardDate.toString().slice(0, 15)
         cardDate.setDate(cardDate.getDate() + 1)
-        // temperatures[i].innerHTML = maxTemps[i]
+        temperatures[i].innerHTML = maxTemps[i]
     }
 
 
