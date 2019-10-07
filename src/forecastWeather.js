@@ -17,11 +17,15 @@ function forecastWeather(d) {
     const dates = document.getElementsByClassName('dates')
     const minTemperatures = document.getElementsByClassName('mintemp')
     const maxTemperatures = document.getElementsByClassName('maxtemp')
+    const descriptions = document.getElementsByClassName('desc')
+    const icons = document.getElementsByClassName('icons')
+    // console.log(descriptions.length)
 
     const forecastDaysAPI = [d.list[8], d.list[16], d.list[24], d.list[32]]
     const allMeasurementsFiveDays = [...d.list]
 
     for (let i = 0; i < cards.length; i++) {
+        //date
         locations[i].innerHTML = d.city.name + ', ' + d.city.country
         dates[i].innerHTML = timeConverter(forecastDaysAPI[i].dt)
 
@@ -36,6 +40,13 @@ function forecastWeather(d) {
                 minTemperatures[i].innerHTML = 'Min temp: ' + parseInt(allMeasurementsFiveDays[j].main.temp_max)
             } else if (date === dates[i].innerHTML && hour === '15:00:00') {
                 maxTemperatures[i].innerHTML = 'Max temp: ' + parseInt(allMeasurementsFiveDays[j].main.temp_min)
+
+                descriptions[i].innerHTML = allMeasurementsFiveDays[j].weather[0].description
+
+                //icon
+
+                const icon = allMeasurementsFiveDays[j].weather[0].icon + '.png'
+                icons[i].setAttribute('src', icon);
             }
         }
     }
