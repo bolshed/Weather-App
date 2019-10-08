@@ -1,9 +1,9 @@
 // display city + country  // days // make 2 fetches/ functions for current and forecast
 
-import 'bootstrap/scss/bootstrap.scss';
-import { apiKey } from './token.js';
-import { currentWeather } from './currentWeather.js';
-import { forecastWeather } from './forecastWeather.js';
+import 'bootstrap/scss/bootstrap.scss'
+import { apiKey } from './token.js'
+import { currentWeather } from './currentWeather.js'
+import { forecastWeather } from './forecastWeather.js'
 
 function fetchCurrentWeather(cityName) {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + apiKey + '&units=metric')
@@ -15,7 +15,7 @@ function fetchCurrentWeather(cityName) {
         })
         .catch(function () {
             alert("Error current weather")
-        });
+        })
 }
 
 function fetchForecastWeather(cityName) {
@@ -28,7 +28,7 @@ function fetchForecastWeather(cityName) {
         })
         .catch(function () {
             alert("Error forecast")
-        });
+        })
 }
 
 window.onload = function () {
@@ -38,19 +38,17 @@ window.onload = function () {
 }
 
 // let btn = document.getElementById('cityButton');
-// let inputValue = document.getElementById('cityInput').value; // separate this
-// btn.addEventListener('click', searchCity(inputValue));
+// let cityInput = document.getElementById('cityInput')
+// let cityInputValue = cityInput.value
+
+// btn.addEventListener('click', searchCity(cityInput.value));
 
 // function searchCity(cityName) {
 //     console.log(cityName);
-    // cityName.toLowerCase
-    // if (cityName === 'varna') {
-    //     fetchWeather(726050);
-    // } else {
-    //     console.log(`shit`);
-    // }
+//     cityName.toLowerCase
+//     if (cityName === 'varna') {
+//         fetchCurrentWeather('Varna');
+//     } else {
+//         console.log(`shit`);
+//     }
 // }
-
-
-
-// function drawWeatherForecast ( )

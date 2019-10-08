@@ -19,7 +19,7 @@ function forecastWeather(d) {
     const maxTemperatures = document.getElementsByClassName('maxtemp')
     const descriptions = document.getElementsByClassName('desc')
     const icons = document.getElementsByClassName('icons')
-    // console.log(descriptions.length)
+    const winds = document.getElementsByClassName('winds')
 
     const forecastDaysAPI = [d.list[8], d.list[16], d.list[24], d.list[32]]
     const allMeasurementsFiveDays = [...d.list]
@@ -37,16 +37,17 @@ function forecastWeather(d) {
 
             // check if the date corresponds with the card date and assign the 6am temperature as the minimum for the day.
             if (date === dates[i].innerHTML && hour === '06:00:00') {
-                minTemperatures[i].innerHTML = 'Min temp: ' + parseInt(allMeasurementsFiveDays[j].main.temp_max)
+                minTemperatures[i].innerHTML = 'Min temp: ' + parseInt(allMeasurementsFiveDays[j].main.temp_max) + '°C'
             } else if (date === dates[i].innerHTML && hour === '15:00:00') {
-                maxTemperatures[i].innerHTML = 'Max temp: ' + parseInt(allMeasurementsFiveDays[j].main.temp_min)
+                maxTemperatures[i].innerHTML = 'Max temp: ' + parseInt(allMeasurementsFiveDays[j].main.temp_min) + '°C'
 
                 descriptions[i].innerHTML = allMeasurementsFiveDays[j].weather[0].description
 
                 //icon
-
                 const icon = allMeasurementsFiveDays[j].weather[0].icon + '.png'
                 icons[i].setAttribute('src', icon);
+                //wind
+                winds[i].innerHTML = 'Wind speed: ' + parseInt(allMeasurementsFiveDays[j].wind.speed) + ' m/s'
             }
         }
     }
