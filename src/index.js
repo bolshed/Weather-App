@@ -34,21 +34,20 @@ function fetchForecastWeather(cityName) {
 window.onload = function () {
     fetchCurrentWeather('Berlin');
     fetchForecastWeather('Berlin');
-
 }
 
-// let btn = document.getElementById('cityButton');
-// let cityInput = document.getElementById('cityInput')
-// let cityInputValue = cityInput.value
+const btn = document.getElementById('searchCityBtn');
+let cityInput = document.getElementById('cityInput')
 
-// btn.addEventListener('click', searchCity(cityInput.value));
+btn.addEventListener('click', function () {
+    let cityInputValue = cityInput.value
+    const capitalizedCityName = cityInputValue.charAt(0).toUpperCase() + cityInputValue.slice(1).toLowerCase()
+    fetchCurrentWeather(capitalizedCityName)
+    fetchForecastWeather(capitalizedCityName)
+})
 
-// function searchCity(cityName) {
-//     console.log(cityName);
-//     cityName.toLowerCase
-//     if (cityName === 'varna') {
-//         fetchCurrentWeather('Varna');
-//     } else {
-//         console.log(`shit`);
-//     }
-// }
+cityInput.addEventListener('keypress', function (e) {
+    if (e.keyCode === 13) {
+        btn.click()
+    }
+})

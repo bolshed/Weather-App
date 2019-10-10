@@ -3,12 +3,17 @@ export { forecastWeather }
 function timeConverter(UNIX_timestamp) {
     const a = new Date(UNIX_timestamp * 1000)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     const year = a.getFullYear()
     const month = months[a.getMonth()]
     const date = a.getDate()
-    const time = date + ' ' + month + ' ' + year
+    const day = days[a.getDay()]
+
+    const time = day + ' ' + date + ' ' + month + ' ' + year
     return time
 }
+
+
 
 function forecastWeather(d) {
 
@@ -21,26 +26,31 @@ function forecastWeather(d) {
     const icons = document.getElementsByClassName('icons')
     const winds = document.getElementsByClassName('winds')
 
+    // declare next 4 days' values (+24h) in 1 array.
     const forecastDaysAPI = [d.list[8], d.list[16], d.list[24], d.list[32]]
+    // put all the measurements for next 5 days (every 3hrs) in a variable
     const allMeasurementsFiveDays = [...d.list]
 
+    // insert the needed values in the cards
     for (let i = 0; i < cards.length; i++) {
-        //date
+        //location & date
         locations[i].innerHTML = d.city.name + ', ' + d.city.country
         dates[i].innerHTML = timeConverter(forecastDaysAPI[i].dt)
 
         for (let j = 0; j < allMeasurementsFiveDays.length; j++) {
 
             //extract the exact hour & date the forecast is made for
-            let hour = allMeasurementsFiveDays[j].dt_txt.slice(11)
-            let date = timeConverter(allMeasurementsFiveDays[j].dt)
+            const hour = allMeasurementsFiveDays[j].dt_txt.slice(11)
+            const date = timeConverter(allMeasurementsFiveDays[j].dt)
 
             // check if the date corresponds with the card date and assign the 6am temperature as the minimum for the day.
             if (date === dates[i].innerHTML && hour === '06:00:00') {
                 minTemperatures[i].innerHTML = 'Min temp: ' + parseInt(allMeasurementsFiveDays[j].main.temp_max) + '°C'
+                // same but the maximum temp (15h)
             } else if (date === dates[i].innerHTML && hour === '15:00:00') {
                 maxTemperatures[i].innerHTML = 'Max temp: ' + parseInt(allMeasurementsFiveDays[j].main.temp_min) + '°C'
 
+                // the short weather description
                 descriptions[i].innerHTML = allMeasurementsFiveDays[j].weather[0].description
 
                 //icon
@@ -51,7 +61,7 @@ function forecastWeather(d) {
             }
         }
     }
-
+}
 
 
 
@@ -87,4 +97,3 @@ function forecastWeather(d) {
     // }
 
     // console.log(cardDate)
-}
