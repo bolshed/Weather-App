@@ -8,8 +8,8 @@
     <title> Weather App </title>
 </head>
 
-<body style="background-color: rgb(50, 35, 66)">
-    <div class="text-center bg-info">
+<body>
+    <div class="text-center" id='heading'>
         <h1 class="text-light">Weather App</h1>
     </div><br>
     <div class="input-group mb-3 col-8 mx-auto">
@@ -20,83 +20,80 @@
         </div>
     </div>
 
-    <div class="text-center text-dark mx-auto">
-        <br>
+    <div class="text-center text-dark pl-4">
 
-
-        <div class="row d-flex justify-content-around ">
-            <div class="card col-3 bg-light">
-                <h3 class="mx-auto" id="location0"> Location </h3>
-                <h4 class="card-title mx-auto"> Current weather </h4>
-                <h5 class="mx-auto text-black-50" id="date0"> date </h5>
-                <img id="icon0" class="card-img-top mx-auto" style="width: 5rem;">
-                <div id="weather0" class="card-body d-flex flex-column align-items-center">
-                    <h4 id="temp00"> Temperature: </h4>
-                    <p id="desc0" class="card-text mx-auto"> Description </p>
-                    <p id="wind0" class="card-text"> Wind </p>
-                    <p id="mmtemp0" class="card-text"> Min temp: Max temp: </p>
-                </div>
-            </div>
-            <div class="cards col-2">
-                <div class="card bg-light">
-                    <div class="card-body d-flex flex-column align-items-center">
-                        <h3 class="location mx-auto"> Location </h3>
-                        <h5 class="dates text-black-50"> date </h5>
-                        <img class="icons" class="card-img-top mx-auto" style="width: 5rem;">
-                        <h5 class="mintemp" class="card-subtitle mb-2"> mintemp: </h5>
-                        <h5 class="maxtemp" class="card-subtitle mb-2"> maxtemp: </h5>
-                        <p id="desc1" class="desc card-text"> Description </p>
-                        <p class="winds card-text"> Wind </p>
+        <div class="row d-flex justify-content-around mt-4 ">
+            <div class="card col-lg-2" id="card0">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <h3 class="mx-auto border-bottom" id="location0"> Location </h3>
+                    <h5 class="card-title mx-auto"> Current conditions </h5>
+                    <h5 class="mx-auto text-black-50" id="date0"> date </h5>
+                    <img id="icon0" class="card-img-top mx-auto">
+                    <div id="weather0" class="card-body d-flex flex-column align-items-center">
+                        <h4 id="temp00"> Temperature: </h4>
+                        <p id="desc0" class="card-text mx-auto"> Description </p>
+                        <p id="wind0" class="card-text"> Wind </p>
+                        <!-- <p id="mmtemp0" class="card-text"> Min temp: Max temp: </p> -->
                     </div>
                 </div>
             </div>
-            <div class="cards col-2">
-                <div class="card bg-light">
-                    <div id="weather2" class="card-body d-flex flex-column align-items-center">
-                        <h3 class="location mx-auto mb-0"> Location </h3>
-                        <h5 class="dates mx-auto text-black-50"> date </h5>
-                        <img class="icons" class="card-img-top mx-auto" style="width: 5rem;">
-                        <h5 class="mintemp" class="card-subtitle mb-2"> mintemp: </h5>
-                        <h5 class="maxtemp" class="card-subtitle mb-2"> maxtemp: </h5>
-                        <p id="desc2" class="desc card-text"> Description </p>
-                        <p class="winds card-text"> Wind </p>
-                    </div>
+            <div class="cards card col-lg-2">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <h3 class="location mx-auto border-bottom"> Location </h3>
+                    <h5 class="days text-black-50"> day </h5>
+                    <h5 class="dates text-black-50"> date </h5>
+                    <img class="icons card-img-top mx-auto">
+                    <h5 class="mintemp" class="card-subtitle mb-2"> mintemp: </h5>
+                    <h5 class="maxtemp" class="card-subtitle mb-2"> maxtemp: </h5>
+                    <p id="desc1" class="desc card-text"> Description </p>
+                    <p class="winds card-text"> Wind </p>
                 </div>
             </div>
-            <div class="cards col-2">
-                <div class="card bg-light">
-                    <div id="weather3" class="card-body d-flex flex-column align-items-center">
-                        <h3 class="location mx-auto mb-0"> Location </h3>
-                        <h5 class="dates mx-auto text-black-50"> date </h5>
-                        <img class="icons" class="card-img-top mx-auto" style="width: 5rem;">
-                        <h5 class="mintemp" class="card-subtitle mb-2"> mintemp: </h5>
-                        <h5 class="maxtemp" class="card-subtitle mb-2"> maxtemp: </h5>
-                        <p id="desc3" class="desc card-text"> Description </p>
-                        <p class="winds card-text"> Wind </p>
-                    </div>
+            <div class="card cards col-lg-2">
+                <div id="weather2" class="card-body d-flex flex-column align-items-center">
+                    <h3 class="location mx-auto border-bottom"> Location </h3>
+                    <h5 class="days text-black-50"> day </h5>
+                    <h5 class="dates mx-auto text-black-50"> date </h5>
+                    <img class="icons card-img-top mx-auto">
+                    <h5 class="mintemp" class="card-subtitle mb-2"> mintemp: </h5>
+                    <h5 class="maxtemp" class="card-subtitle mb-2"> maxtemp: </h5>
+                    <p id="desc2" class="desc card-text"> Description </p>
+                    <p class="winds card-text"> Wind </p>
                 </div>
             </div>
-            <div class="cards col-2">
-                <div class="card bg-light">
-                    <div id="weather4" class="card-body d-flex flex-column align-items-center">
-                        <h3 class="location mx-auto mb-0"> Location </h3>
-                        <h5 class="dates mx-auto text-black-50"> date </h5>
-                        <img class="icons" class="card-img-top mx-auto" style="width: 5rem;">
-                        <h5 class="mintemp" class="card-subtitle mb-2"> mintemp: </h5>
-                        <h5 class="maxtemp" class="card-subtitle mb-2"> maxtemp: </h5>
-                        <p id="desc4" class="desc card-text"> Description </p>
-                        <p class="winds card-text"> Wind </p>
-                    </div>
+            <div class="card cards col-lg-2">
+                <div id="weather3" class="card-body d-flex flex-column align-items-center">
+                    <h3 class="location mx-auto border-bottom"> Location </h3>
+                    <h5 class="days text-black-50"> day </h5>
+                    <h5 class="dates mx-auto text-black-50"> date </h5>
+                    <img class="icons card-img-top mx-auto">
+                    <h5 class="mintemp" class="card-subtitle mb-2"> mintemp: </h5>
+                    <h5 class="maxtemp" class="card-subtitle mb-2"> maxtemp: </h5>
+                    <p id="desc3" class="desc card-text"> Description </p>
+                    <p class="winds card-text"> Wind </p>
                 </div>
             </div>
-        </div><br>
+            <div class="card cards col-lg-2">
+                <div id="weather4" class="card-body d-flex flex-column align-items-center">
+                    <h3 class="location mx-auto border-bottom"> Location </h3>
+                    <h5 class="days text-black-50"> day </h5>
+                    <h5 class="dates mx-auto text-black-50"> date </h5>
+                    <img class="icons card-img-top mx-auto">
+                    <h5 class="mintemp" class="card-subtitle mb-2"> mintemp: </h5>
+                    <h5 class="maxtemp" class="card-subtitle mb-2"> maxtemp: </h5>
+                    <p id="desc4" class="desc card-text"> Description </p>
+                    <p class="winds card-text"> Wind </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <!-- Footer -->
-        <footer class="page-footer font-small special-color-dark pt-4 bg-info fixed-bottom">
+    <!-- Footer -->
+    <!-- <footer class="page-footer font-small special-color-dark pt-4 bg-info fixed-bottom"> -->
 
-        </footer>
-        <!-- Footer -->
-        <script src="main.js"></script>
+    </footer>
+    <!-- Footer -->
+    <script src="main.js"></script>
 
 </body>
 

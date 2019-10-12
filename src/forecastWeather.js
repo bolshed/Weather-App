@@ -1,24 +1,12 @@
 export { forecastWeather }
 
-function timeConverter(UNIX_timestamp) {
-    const a = new Date(UNIX_timestamp * 1000)
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-    const year = a.getFullYear()
-    const month = months[a.getMonth()]
-    const date = a.getDate()
-    const day = days[a.getDay()]
-
-    const time = day + ' ' + date + ' ' + month + ' ' + year
-    return time
-}
-
-
+import { timeConverter, dayGiver } from './timeConverter.js'
 
 function forecastWeather(d) {
 
     const cards = document.getElementsByClassName('cards')
     const locations = document.getElementsByClassName('location')
+    const days = document.getElementsByClassName('days')
     const dates = document.getElementsByClassName('dates')
     const minTemperatures = document.getElementsByClassName('mintemp')
     const maxTemperatures = document.getElementsByClassName('maxtemp')
@@ -31,11 +19,14 @@ function forecastWeather(d) {
     // put all the measurements for next 5 days (every 3hrs) in a variable
     const allMeasurementsFiveDays = [...d.list]
 
-    // insert the needed values in the cards
+    // insert the location,date and weather conditions by looping through the cards
     for (let i = 0; i < cards.length; i++) {
         //location & date
-        locations[i].innerHTML = d.city.name + ', ' + d.city.country
+        days[i].innerHTML = dayGiver(forecastDaysAPI[i].dt)
+
         dates[i].innerHTML = timeConverter(forecastDaysAPI[i].dt)
+
+        locations[i].innerHTML = d.city.name + ', ' + d.city.country
 
         for (let j = 0; j < allMeasurementsFiveDays.length; j++) {
 

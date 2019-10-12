@@ -1,26 +1,20 @@
+// import clouds from './images/04d.png'
+// import iconSelector from './iconSelector.js'
 export { currentWeather }
 
-function timeConverter(UNIX_timestamp) {
-    const a = new Date(UNIX_timestamp * 1000)
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-    const year = a.getFullYear()
-    const month = months[a.getMonth()]
-    const date = a.getDate()
-    const day = days[a.getDay()]
-
-    const time = day + ' ' + date + ' ' + month + ' ' + year
-    return time
-}
+import { timeConverter } from './timeConverter.js'
 
 function currentWeather(d) {
     //location
-    document.getElementById('location0').innerHTML = d.name + ',' + d.sys.country
+    document.getElementById('location0').innerHTML = d.name + ', ' + d.sys.country
     //date
     document.getElementById('date0').innerHTML = timeConverter(d.dt)
     //icon
-    const icon = d.weather[0].icon + '.png'
-    document.getElementById('icon0').setAttribute('src', icon)
+    const icon = document.getElementById('icon0')
+    icon.src = d.weather[0].icon + '.png'
+    // const icon = d.weather[0].icon + '.png'
+    // const icon = '../src/images/04d.png'
+    // document.getElementById('icon0').setAttribute('src', icon)
     //temperature
     document.getElementById('temp00').innerHTML = parseInt(d.main.temp) + ' °C'
     //description
@@ -28,5 +22,5 @@ function currentWeather(d) {
     //wind
     document.getElementById('wind0').innerHTML = 'Wind speed: ' + parseInt(d.wind.speed) + ' m/s'
     //min-max temp
-    document.getElementById('mmtemp0').innerHTML = 'Min: ' + parseInt(d.main.temp_min) + '&deg;' + 'C ' + 'Max: ' + parseInt(d.main.temp_max) + '&deg;' + 'C'
+    // document.getElementById('mmtemp0').innerHTML = 'Min: ' + parseInt(d.main.temp_min) + '&deg;' + 'C ' + 'Max: ' + parseInt(d.main.temp_max) + '&deg;' + 'C'
 }

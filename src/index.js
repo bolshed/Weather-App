@@ -1,9 +1,8 @@
-// display city + country  // days // make 2 fetches/ functions for current and forecast
-
-import 'bootstrap/scss/bootstrap.scss'
 import { apiKey } from './token.js'
 import { currentWeather } from './currentWeather.js'
 import { forecastWeather } from './forecastWeather.js'
+import 'bootstrap/scss/bootstrap.scss'
+import "./styles.css";
 
 function fetchCurrentWeather(cityName) {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + apiKey + '&units=metric')

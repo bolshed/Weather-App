@@ -1,0 +1,27 @@
+body {
+    width: 98vw;
+    /* display: flex;
+    flex-direction: column; */
+    color: white;
+    background: rgb(50, 35, 66) url(./images/stratocumulus.jpg) 100vw 100vh;
+    /* background-repeat: no-repeat; */
+    background-size: 100vw;
+}
+
+#card0 {
+    background-color: rgba(255, 230, 0, 0.699);
+    box-shadow: rgb(101, 158, 214) 5px 6px 5px;
+}
+
+#icon0 {
+    width: 6rem;
+}
+
+.cards {
+    background-color: rgba(255, 230, 0, 0.699);
+    box-shadow: rgb(101, 158, 214) 5px 6px 5px;
+
+}
+.icons {
+    width: 5rem;
+}
