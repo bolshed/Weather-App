@@ -3,7 +3,7 @@ body {
     /* display: flex;
     flex-direction: column; */
     color: white;
-    background: rgb(50, 35, 66) url(./images/stratocumulus.jpg) 100vw 100vh;
+    background: rgb(50, 35, 66) url(./images/sky-with-clouds.jpg) 100vw 100vh;
     /* background-repeat: no-repeat; */
     background-size: 100vw;
 }
