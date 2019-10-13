@@ -12,7 +12,7 @@ function timeConverter(UNIX_timestamp) {
     return time
 }
 
-let dayGiver = (UNIX_timestamp) => {
+const dayGiver = (UNIX_timestamp) => {
     const a = new Date(UNIX_timestamp * 1000)
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     const day = days[a.getDay()]

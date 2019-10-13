@@ -6,7 +6,7 @@ import { timeConverter } from './timeConverter.js'
 
 function currentWeather(d) {
     //location
-    document.getElementById('location0').innerHTML = d.name + ', ' + d.sys.country
+    document.getElementById('location0').innerHTML = d.name + ' ' + d.sys.country
     //date
     document.getElementById('date0').innerHTML = timeConverter(d.dt)
     //icon

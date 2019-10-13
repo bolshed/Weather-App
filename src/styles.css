@@ -1,18 +1,25 @@
 body {
-    width: 98vw;
-    /* display: flex;
-    flex-direction: column; */
+    max-width: 98vw;
     color: white;
-    background: rgb(50, 35, 66) url(./images/sky-with-clouds.jpg) 100vw 100vh;
-    /* background-repeat: no-repeat; */
-    background-size: 100vw;
+    /* background: lightblue url(sky-with-clouds.jpg); */
+}
+
+h1 {
+    text-align: center;
+    width: 100vw;
+    color: whitesmoke;
+    box-shadow: 0px 5px 18px rgb(123, 165, 207);
+    border-right: none;
 }
 
 #card0 {
     background-color: rgba(255, 230, 0, 0.699);
     box-shadow: rgb(101, 158, 214) 5px 6px 5px;
 }
-
+.location,
+#location0 {
+    padding: 0.5rem;
+}
 #icon0 {
     width: 6rem;
 }

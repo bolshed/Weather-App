@@ -21,12 +21,10 @@ function forecastWeather(d) {
 
     // insert the location,date and weather conditions by looping through the cards
     for (let i = 0; i < cards.length; i++) {
-        //location & date
+        //location, day, date
+        locations[i].innerHTML = d.city.name + ' ' + d.city.country
         days[i].innerHTML = dayGiver(forecastDaysAPI[i].dt)
-
         dates[i].innerHTML = timeConverter(forecastDaysAPI[i].dt)
-
-        locations[i].innerHTML = d.city.name + ', ' + d.city.country
 
         for (let j = 0; j < allMeasurementsFiveDays.length; j++) {
 
