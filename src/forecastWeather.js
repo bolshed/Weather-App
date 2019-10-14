@@ -34,19 +34,22 @@ function forecastWeather(d) {
 
             // check if the date corresponds with the card date and assign the 6am temperature as the minimum for the day.
             if (date === dates[i].innerHTML && hour === '06:00:00') {
-                minTemperatures[i].innerHTML = 'Min temp: ' + parseInt(allMeasurementsFiveDays[j].main.temp_max) + '°C'
+                // minTemperatures[i].innerHTML = 'Min temp: ' + parseInt(allMeasurementsFiveDays[j].main.temp_max) + '°C'
+                minTemperatures[i].innerHTML = `Min temp: ${parseInt(allMeasurementsFiveDays[j].main.temp_max)} °C`
+
+
                 // same but the maximum temp (15h)
             } else if (date === dates[i].innerHTML && hour === '15:00:00') {
-                maxTemperatures[i].innerHTML = 'Max temp: ' + parseInt(allMeasurementsFiveDays[j].main.temp_min) + '°C'
+                maxTemperatures[i].innerHTML = `Max temp: ${parseInt(allMeasurementsFiveDays[j].main.temp_min)} °C`
 
                 // the short weather description
-                descriptions[i].innerHTML = allMeasurementsFiveDays[j].weather[0].description
+                descriptions[i].innerHTML = `${allMeasurementsFiveDays[j].weather[0].description[0].toUpperCase()}${allMeasurementsFiveDays[j].weather[0].description.slice(1)}`
 
                 //icon
-                const icon = allMeasurementsFiveDays[j].weather[0].icon + '.png'
+                const icon = `${allMeasurementsFiveDays[j].weather[0].icon}.png`
                 icons[i].setAttribute('src', icon);
                 //wind
-                winds[i].innerHTML = 'Wind speed: ' + parseInt(allMeasurementsFiveDays[j].wind.speed) + ' m/s'
+                winds[i].innerHTML = `'Wind speed: ${parseInt(allMeasurementsFiveDays[j].wind.speed)} m/s`
             }
         }
     }

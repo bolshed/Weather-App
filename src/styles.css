@@ -1,15 +1,14 @@
 body {
     max-width: 98vw;
     color: white;
-    /* background: lightblue url(sky-with-clouds.jpg); */
+    /* background: lightblue url(..src/images/sky-with-clouds.jpg); */
 }
 
 h1 {
     text-align: center;
     width: 100vw;
     color: whitesmoke;
-    box-shadow: 0px 5px 18px rgb(123, 165, 207);
-    border-right: none;
+    background-color: rgba(169, 188, 206, 0.26);
 }
 
 #card0 {
